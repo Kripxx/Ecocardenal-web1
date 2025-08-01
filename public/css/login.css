@@ -1,0 +1,62 @@
+body{
+    background-image: url("/images/fondos/fondologin.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Hace que la imagen quede fija mientras se hace scroll */
+
+  
+}
+
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.login-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.login-image img {
+    max-width: 120px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #004d40;
+}
+.login-container a {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #00796b;
+}
+.login-container a:hover {
+    text-decoration: underline;
+}

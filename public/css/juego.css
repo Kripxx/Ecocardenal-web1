@@ -1,0 +1,69 @@
+
+
+
+/* Enlace para volver a actividades */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-board img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#restart-button {
+    margin-top: 20px;
+}
+ 
+
+
+
+/* Botón de reinicio */
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background-color: #0056b3;
+}
+
+
+.section.center {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* Título del juego */
+.game-title {
+    font-size: 2.5rem;
+    color: #4CAF50; /* Verde para el tema ecológico */
+    font-weight: bold;
+}
+

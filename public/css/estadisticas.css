@@ -1,0 +1,41 @@
+.progress-container {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.progress-bar {
+    background-color: #e0f7fa;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    height: 25px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #00796b;
+    height: 100%;
+    line-height: 25px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.stats-icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.stat-icon {
+    text-align: center;
+    font-size: 20px;
+    color: #00796b;
+}
+
+.stat-icon i {
+    font-size: 50px;
+    margin-bottom: 10px;
+}

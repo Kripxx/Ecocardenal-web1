@@ -1,0 +1,33 @@
+.manualidad-block {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.manualidad-block h3 {
+    color: #006d77;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
+}
+
+.manualidad-block h4 {
+    color: #004d40;
+    margin-top: 10px;
+}
+
+.manualidad-block ul, .manualidad-block ol {
+    margin-left: 20px;
+}
+
+.manualidad-block a {
+    color: #00796b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.manualidad-block a:hover {
+    text-decoration: underline;
+}

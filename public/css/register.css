@@ -1,0 +1,52 @@
+body{
+    background-image: url("/images/fondos/fondoregistro.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+
+  
+}
+
+
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+input {
+    margin-bottom: 15px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #004d40;
+}
+.register-container a {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #00796b;
+}
+.register-container a:hover {
+    text-decoration: underline;
+}
+.fst-italic {
+    font-style: italic;
+}

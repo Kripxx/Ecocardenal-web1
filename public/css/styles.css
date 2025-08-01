@@ -1,0 +1,285 @@
+
+body{
+    background-image: url("/images/fondos/fondogeneral.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Hace que la imagen quede fija mientras se hace scroll */
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+.section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background-color: #b2ebf2;
+    border: 2px solid #00796b;
+}
+.section h2 {
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+.section p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.section i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.options-list {
+    list-style-type: none;
+    padding: 0;
+}
+.options-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.options-list li a {
+    text-decoration: none;
+    color: #00796b;
+}
+.options-list li a:hover {
+    color: #004d40;
+}
+.btn-link {
+    display: inline-block;
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-link:hover {
+    background-color: #004d40;
+}
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.image-container img {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+}
+.center {
+    text-align: center;
+}
+.small-margin {
+    margin-top: -10px;
+}
+.flashes {
+    list-style: none;
+    padding: 0;
+}
+.flashes li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.flashes .success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.flashes .danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.login-container, .register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b2ebf2;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    text-align: center;
+}
+.login-container h2, .register-container h2 {
+    color: #00796b;
+}
+.login-container form, .register-container form {
+    display: flex;
+    flex-direction: column;
+}
+.login-container input, .register-container input, .register-container select {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+.login-container button, .register-container button {
+    padding: 10px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-container button:hover, .register-container button:hover {
+    background-color: #004d40;
+}
+.login-container a, .register-container a {
+    color: #00796b;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.login-container a:hover, .register-container a:hover {
+    color: #004d40;
+}
+  esto es para la pagina de estadisticas  D: 
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.stats-table th, .stats-table td {
+    border: 1px solid #00796b;
+    padding: 10px;
+    text-align: left;
+}
+
+.stats-table th {
+    background-color: #00796b;
+    color: white;
+}
+
+.stats-table td {
+    background-color: #e0f7fa;
+}
+
+
+ esto es para la pagina de experimentos   
+
+.experimentos-list {
+    list-style-type: none;
+    padding: 0;
+}
+.experimentos-list li {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+.experimentos-list h3 {
+    margin-top: 0;
+}
+.experimentos-list a {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #00796b;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.experimentos-list a:hover {
+    background-color: #004d40;
+}
+
+.options-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.options-list li {
+    margin: 10px 0;
+}
+
+.options-list a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: #0288d1;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.options-list a i {
+    margin-right: 10px;
+}
+
+.options-list a:hover {
+    background-color: #0288d1;
+    color: white;
+}
+
+ Remover el contorno azul al enfocar 
+.options-list a:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.back-link {
+    margin-top: 20px;
+    color: #0288d1;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.image-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;} */

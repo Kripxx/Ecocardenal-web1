@@ -1,0 +1,58 @@
+/* Personalización adicional para actividades */
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table th {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+table td {
+    font-size: 1rem;
+    color: #333333;
+}
+
+.table-hover tbody tr.hover-bg:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table-light {
+    background-color: #f8f9fa !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fafafa !important;
+}
+
+.alert-info {
+    font-size: 1.2rem;
+    border-radius: 15px;
+    padding: 25px;
+    background-color: #e3f2fd;
+    border-left: 5px solid #004d40;
+}
+
+.alert-info i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #004d40;
+}
+
+.btn-outline-primary {
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-primary:hover {
+    background-color: #004d40;
+    color: white;
+    box-shadow: 0 5px 15px rgba(66, 165, 245, 0.3);
+}
