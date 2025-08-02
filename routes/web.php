@@ -24,6 +24,7 @@ use App\Http\Controllers\EstadisticasController;
 // Rutas públicas
 Route::get('/', [LoginController::class, 'index'])->name('login'); // <-- Muestra primero el login
 Route::get('/index', [ControladorVistas::class, 'index'])->name('index'); // <-- Mueve el index a otra ruta si lo necesitas
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegistroController::class, 'index'])->name('registrar');
 Route::post('/inicio', [LoginController::class, 'login'])->name('iniciar');
 Route::post('/enviarusuario', [RegistroController::class, 'store'])->name('enviar');
