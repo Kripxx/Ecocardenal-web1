@@ -125,22 +125,16 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex align-items-center">
                     <a href="{{ route('informacionUsuario') }}" class="list-group-item d-flex align-items-center">
-                        <i class="fa fa-user-circle me-2" aria-label="Ajuste de Perfil"></i> Ajuste de Perfil
+                        <i class="fa fa-user-circle me-2" aria-label="Ajuste de Perfil"></i> Perfil
                     </a>
 
                 </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <i class="fa fa-bell me-2"></i> Notificaciones
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <i class="fa fa-lock me-2"></i> Privacidad
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <i class="fa fa-language me-2"></i> Idioma
-                </li>
-                <li class="list-group-item d-flex align-items-center">
-                    <i class="fa fa-info-circle me-2"></i> Información de la Cuenta
-                </li>
+                
+               <li class="list-group-item d-flex align-items-center">
+    <a href="{{ route('logout') }}" class="list-group-item d-flex align-items-center">
+        <i class="fas fa-sign-out-alt me-2" aria-label="Cerrar sesión"></i> Salir
+    </a>
+</li>
             </ul>
         </div>
     </div>

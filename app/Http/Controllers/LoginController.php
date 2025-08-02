@@ -15,6 +15,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+
+        
         // Validación de datos del formulario
         $request->validate([
             'username' => 'required|string',
