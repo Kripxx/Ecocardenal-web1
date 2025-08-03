@@ -20,15 +20,23 @@ use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\EstadisticasController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\AtencionClienteController;
+use App\Http\Controllers\FaqController;
 
 // Rutas públicas
-Route::get('/', [LoginController::class, 'index'])->name('login'); // <-- Muestra primero el login
+Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/index', [ControladorVistas::class, 'index'])->name('index'); // <-- Mueve el index a otra ruta si lo necesitas
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegistroController::class, 'index'])->name('registrar');
 Route::post('/inicio', [LoginController::class, 'login'])->name('iniciar');
 Route::post('/enviarusuario', [RegistroController::class, 'store'])->name('enviar');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//ERP atencion al cliente
+Route::get('/atencion-cliente', [AtencionClienteController::class, 'index'])->name('atencion.cliente');
+Route::post('/atencion-cliente/enviar', [AtencionClienteController::class, 'enviar'])->name('atencion.cliente.enviar');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 
 // Análisis de sentimientos
