@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,14 +21,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        URL::forceScheme('https');
-        if (env('APP_ENV') !== 'local') {
-        
-        URL::forceRootUrl(config('app.url'));
-    }
-        // Ruta personalizada para tus juegos
+        // Forzar HTTPS solo en producción
+        if (env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
+            URL::forceRootUrl(config('app.url'));
+        }
+
+        // Registrar rutas personalizadas para tus juegos
         Route::middleware('api')
-            ->prefix('APIjuego') // Este es el prefijo que estás usando
+            ->prefix('APIjuego')
             ->group(base_path('routes/APIjuego.php'));
     }
 }
