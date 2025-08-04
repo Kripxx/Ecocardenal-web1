@@ -137,6 +137,16 @@
         <i class="fas fa-sign-out-alt me-2" aria-label="Cerrar sesión"></i> Salir
     </a>
 </li>
+<li class="list-group-item d-flex align-items-center">
+                    <a href="{{ route('atencion.cliente') }}" class="list-group-item d-flex align-items-center">
+                        <i class="fa fa-headset me-2"></i> Atención al Cliente
+                    </a>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <a href="{{ route('faq.index') }}" class="d-flex align-items-center text-success">
+                        <i class="fa fa-question-circle me-2"></i> Preguntas Frecuentes
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
