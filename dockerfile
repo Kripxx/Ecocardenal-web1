@@ -35,6 +35,8 @@ RUN npm install && npm run build
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 storage bootstrap/cache
 
+RUN php artisan storage:link
+
 # Expone el puerto 8000, que es el que usará php artisan serve
 EXPOSE 8000
 
