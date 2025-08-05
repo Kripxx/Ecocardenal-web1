@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // Faltaba esta importación
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Support\Facades\DB; 
-use Illuminate\Support\Facades\Session;  // Faltaba esta importación
+use Illuminate\Support\Facades\Session;  
+use Illuminate\Support\Facades\Log;
 
 class ControladorVistas extends Controller
 {
@@ -140,95 +141,9 @@ private function obtenerIconoLogro($logroId)
     return $iconos[$logroId] ?? 'fa-certificate text-secondary';
 }
 
- public function metas()
-{
-    if (!session()->has('usuario_id')) {
-        return redirect()->route('login')->with('error', 'Debes iniciar sesión primero');
-    }
 
-    $usuarioId = session('usuario_id');
 
-    try {
-        // Obtener todas las metas disponibles (sin la columna objetivo)
-        $metas = DB::table('metas')
-            ->select('id', 'nombre', 'descripcion', 'puntos') // Solo columnas existentes
-            ->get();
-        
-        // Obtener estadísticas del usuario
-        $estadisticas = [
-            'puntos' => DB::table('ranking')->where('usuario_id', $usuarioId)->value('total_points') ?? 0,
-            'actividades' => DB::table('completed_activities')->where('usuario_id', $usuarioId)->count(),
-            'logros' => DB::table('usuario_logros')->where('usuario_id', $usuarioId)->count()
-        ];
 
-        // Preparar datos para la vista con valores por defecto
-        $metasData = [];
-        foreach ($metas as $meta) {
-            // Asignar objetivos por defecto basados en el ID de meta
-            $objetivo = $this->obtenerObjetivoPorDefecto($meta->id);
-            
-            // Calcular progreso basado en estadísticas
-            $progresoActual = $this->calcularProgreso($meta->id, $estadisticas);
-            $porcentaje = $objetivo > 0 ? min(round(($progresoActual / $objetivo) * 100), 100) : 0;
-            $completada = $progresoActual >= $objetivo;
-            
-            $metasData[] = [
-                'id' => $meta->id,
-                'nombre' => $meta->nombre,
-                'descripcion' => $meta->descripcion,
-                'objetivo' => $objetivo,
-                'actual' => $progresoActual,
-                'porcentaje' => $porcentaje,
-                'completada' => $completada,
-                'puntos' => $meta->puntos
-            ];
-        }
-
-        return view('progreso.metas', [
-            'metas' => $metasData,
-            'totalMetas' => count($metas),
-            'metasCompletadas' => collect($metasData)->where('completada', true)->count()
-        ]);
-
-    } catch (\Exception $e) {
-        \Log::error('Error en metas: ' . $e->getMessage());
-        return view('progreso.metas', [
-            'metas' => [],
-            'totalMetas' => 0,
-            'metasCompletadas' => 0
-        ]);
-    }
-}
-
-private function obtenerObjetivoPorDefecto($metaId)
-{
-    // Define objetivos por defecto basados en el ID de meta
-    $objetivos = [
-        1 => 50,   // Meta 1: 50 puntos
-        2 => 5,     // Meta 2: 5 actividades
-        3 => 3,     // Meta 3: 3 logros
-        4 => 200,   // Meta 4: 200 puntos
-        5 => 7,     // Meta 5: 7 días consecutivos
-        // Agrega más según tus necesidades
-    ];
-
-    return $objetivos[$metaId] ?? 1; // Valor por defecto si no está definido
-}
-
-private function calcularProgreso($metaId, $estadisticas)
-{
-    // Asigna progreso basado en el tipo de meta (puedes ajustar según tu lógica)
-    switch ($metaId) {
-        case 1: case 4: case 10: // Metas de puntos
-            return $estadisticas['puntos'];
-        case 2: case 6: // Metas de actividades
-            return $estadisticas['actividades'];
-        case 3: // Metas de logros
-            return $estadisticas['logros'];
-        default:
-            return 0;
-    }
-}
 
 
     public function quizresultado() {

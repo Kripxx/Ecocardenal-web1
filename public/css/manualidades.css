@@ -1,33 +1,56 @@
-.manualidad-block {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+.card {
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.manualidad-block h3 {
-    color: #006d77;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 10px;
+.hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
-.manualidad-block h4 {
-    color: #004d40;
-    margin-top: 10px;
+.card-img-top {
+    transition: transform 0.5s ease;
+    height: 200px;
+    object-fit: cover;
 }
 
-.manualidad-block ul, .manualidad-block ol {
-    margin-left: 20px;
+.card:hover .card-img-top {
+    transform: scale(1.05);
 }
 
-.manualidad-block a {
-    color: #00796b;
-    text-decoration: none;
-    font-weight: bold;
+.list-group-item {
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.manualidad-block a:hover {
-    text-decoration: underline;
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.rounded-4 {
+    border-radius: 0.75rem !important;
+}
+
+.rounded-pill {
+    border-radius: 50rem !important;
 }
