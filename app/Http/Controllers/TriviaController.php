@@ -35,56 +35,65 @@ class TriviaController extends Controller
      * Generar un nuevo quiz basado en los parámetros seleccionados
      */
     public function generateQuiz(Request $request)
-    {
-        $amount = $request->input('amount', 10);
-        $category = $request->input('category', '');
-        $difficulty = $request->input('difficulty', '');
-        $type = $request->input('type', '');
-        
-        try {
-            $params = [
-                'amount' => $amount
-            ];
-            
-            if (!empty($category) && $category != 'any') {
-                $params['category'] = $category;
-            }
-            
-            if (!empty($difficulty) && $difficulty != 'any') {
-                $params['difficulty'] = $difficulty;
-            }
-            
-            if (!empty($type) && $type != 'any') {
-                $params['type'] = $type;
-            }
-            
-            $response = Http::get($this->baseUrl, $params);
-            
-            if ($response->successful()) {
-                $quizData = $response->json();
-                
-                if ($quizData['response_code'] == 0) {
-                    // Guardar el quiz en la sesión para acceder posteriormente
-                    session(['current_quiz' => $quizData['results']]);
-                    return view('trivia.quiz', [
-                        'questions' => $quizData['results'],
-                        'amount' => $amount,
-                        'category' => $this->getCategoryName($category),
-                        'difficulty' => ucfirst($difficulty)
-                    ]);
-                } else {
-                    // Manejar códigos de respuesta de error
-                    $errorMessage = $this->getErrorMessage($quizData['response_code']);
-                    return redirect()->route('trivia.index')->with('error', $errorMessage);
-                }
-            } else {
-                return redirect()->route('trivia.index')->with('error', 'Error al conectar con la API de Trivia.');
-            }
-        } catch (\Exception $e) {
-            Log::error('Error al generar quiz: ' . $e->getMessage());
-            return redirect()->route('trivia.index')->with('error', 'Error al generar el quiz: ' . $e->getMessage());
+{
+    $amount = $request->input('amount', 10);
+    $category = $request->input('category', '');
+    $difficulty = $request->input('difficulty', '');
+    $type = $request->input('type', '');
+
+    // Categorías aptas para niños
+    $childCategories = ['9', '10', '15', '27', '28', '32']; // puedes agregar más si deseas
+
+    try {
+        // Si no se selecciona categoría o se elige "any", se elige una al azar de las infantiles
+        if (empty($category) || $category === 'any') {
+            $category = $childCategories[array_rand($childCategories)];
         }
+
+        // Si no se selecciona dificultad o se elige "any", se fuerza a 'easy'
+        if (empty($difficulty) || $difficulty === 'any') {
+            $difficulty = 'easy';
+        }
+
+        // Si no se selecciona tipo o se elige "any", se fuerza a 'multiple'
+        if (empty($type) || $type === 'any') {
+            $type = 'multiple';
+        }
+
+        // Construcción final de parámetros
+        $params = [
+            'amount' => $amount,
+            'category' => $category,
+            'difficulty' => $difficulty,
+            'type' => $type
+        ];
+
+        $response = Http::get($this->baseUrl, $params);
+
+        if ($response->successful()) {
+            $quizData = $response->json();
+
+            if ($quizData['response_code'] == 0) {
+                session(['current_quiz' => $quizData['results']]);
+
+                return view('trivia.quiz', [
+                    'questions' => $quizData['results'],
+                    'amount' => $amount,
+                    'category' => $this->getCategoryName($category),
+                    'difficulty' => ucfirst($difficulty)
+                ]);
+            } else {
+                $errorMessage = $this->getErrorMessage($quizData['response_code']);
+                return redirect()->route('trivia.index')->with('error', $errorMessage);
+            }
+        } else {
+            return redirect()->route('trivia.index')->with('error', 'Error al conectar con la API de Trivia.');
+        }
+    } catch (\Exception $e) {
+        Log::error('Error al generar quiz: ' . $e->getMessage());
+        return redirect()->route('trivia.index')->with('error', 'Error al generar el quiz: ' . $e->getMessage());
     }
+}
     
     /**
      * Procesar los resultados del quiz
